@@ -1,0 +1,149 @@
+#!/usr/bin/python2.7
+# encoding: utf-8
+
+# Commandes éxécutées telle quelle, à la fin des opérations
+specialCommands = []
+specialCommands.append("sudo apt-file update")
+specialCommands.append("dcp_1510_drivers/install_drivers")
+specialCommands.append("tweak_ubuntu/install_tweak")
+
+# Retrait de paquets
+pToRemove = []
+pToRemove.append("transmission")
+
+# Ajout de paquets 
+pToAppend = []
+pToAppend.append("pinta")
+pToAppend.append("apt-file")
+pToAppend.append("libreoffice");
+pToAppend.append("webhttrack");
+pToAppend.append("xfe");
+pToAppend.append("fbreader");
+pToAppend.append("wget");
+pToAppend.append("curl");
+pToAppend.append("clamav");
+pToAppend.append("gufw");
+pToAppend.append("clamtk");
+pToAppend.append("powertop");
+pToAppend.append("laptop-mode-tools");
+pToAppend.append("chromium-browser");
+pToAppend.append("deluge");
+pToAppend.append("openjdk-7-jdk");
+pToAppend.append("traceroute");
+pToAppend.append("steam");
+pToAppend.append("geany");
+pToAppend.append("postgresql");
+pToAppend.append("gparted");
+pToAppend.append("wine");
+pToAppend.append("mupen64");
+pToAppend.append("qemu");
+pToAppend.append("gpa");
+pToAppend.append("git");
+pToAppend.append("maven");
+pToAppend.append("wireshark");
+pToAppend.append("filezilla");
+pToAppend.append("gnome-system-monitor");
+pToAppend.append("terminator");
+pToAppend.append("vim");
+pToAppend.append("ranger");
+pToAppend.append("virtualbox");
+pToAppend.append("inkscape");
+pToAppend.append("gimp");
+pToAppend.append("zsnes");
+pToAppend.append("p7zip p7zip-full");
+pToAppend.append("nmap");
+pToAppend.append("vlc");
+
+#
+#
+#
+#
+#
+#
+
+import os
+import subprocess
+import shlex
+import datetime
+
+# conserver l'heure de l'appel
+date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
+logName = "installation_" + date + ".txt"
+
+
+def log(text=os.linesep):
+    ''' 
+    Enregistrer dans le journal
+    '''
+    with open(logName, "a+") as outfile:
+        outfile.write(text + os.linesep)
+
+def printTitle(text):
+    ''' 
+    Afficher une ligne soulignée à l'écran et dans le journal 
+    '''
+    
+    # souligner le texte
+    dashLine = ""
+    for c in text:
+        dashLine += "-"
+    
+    # affichage ecran
+    print 
+    print text
+    print dashLine
+    
+    # affichage journal
+    log()
+    log(text)
+    log(dashLine)
+    
+    
+def printLine(text):
+    ''' 
+    Afficher une ligne à l'écran et dans le journal
+    '''
+    
+    # affichage ecran
+    print 
+    print text
+    
+    # affichage journal
+    log()
+    log(text)
+    
+def loggedCommand(text):
+    ''' 
+    Exécuter une commande et rediriger ses sorties vers le journal
+    '''
+    log("Command: " + text)
+    with open(logName, "a+") as outfile:
+        subprocess.call(shlex.split(text), stdout=outfile, stderr=outfile)
+
+if __name__ == "__main__":
+    
+    printTitle("Script d'installation")
+   
+    printLine("Mise à jour du gestionnaire de paquet")
+    loggedCommand("sudo apt-get -y update")
+
+    printLine("Mise à jour du système")
+    loggedCommand("sudo apt-get -y upgrade")
+    
+    printTitle("Désinstallation de paquets")
+    for i, p in enumerate(pToRemove):
+        printLine("#" + str(i) + " " + p)
+        loggedCommand("sudo apt-get -y autoremove " + p)
+        
+    printTitle("Installation de paquets")
+    for i, p in enumerate(pToAppend):
+        printLine("#" + str(i) + " " + p)
+        loggedCommand("sudo apt-get -y install " + p)
+    
+    printTitle("Commandes spéciales")
+    for i, p in enumerate(specialCommands):
+        printLine("#" + str(i) + " " + p)
+        loggedCommand(p)
+      
+    printLine("Fin du script, journal disponible: " + logName)
+     

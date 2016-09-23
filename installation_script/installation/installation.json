@@ -1,0 +1,13 @@
+{
+    "after_commands": [
+    ],
+    "before_commands": [
+        "test/test",
+        "pwd"
+    ],
+    "to_install": [
+        "test"
+    ],
+    "to_uninstall": [
+    ]
+}

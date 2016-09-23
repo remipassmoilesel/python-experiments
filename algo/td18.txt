@@ -1,0 +1,63 @@
+
+fonction MorseCar1(m: chaine, n: noeud) -> car
+	"""
+	Retourne un caractere associé à une representation (chaine) en morse
+	
+	Sans vérifications
+	"""
+	
+	Lexique:
+		souschaine(chaine, indicedepart, taille) : retourne une sous chaine
+		droit(noeud) : retourne le sous arbre droit
+		gauche(noeud) : retourne le sous arbre gauche
+		valeur(n) : retourne la valeur du noeud
+		symbMorse : caractere
+		
+	Algo:
+	
+		// iterer les caracteres morses
+		i <- 0
+		tant que i < taille(chaine):
+			
+			// extraire le prochain caractere
+			symbMorse <- souschaine(chaine, i, 1)
+			
+			// -: examiner le sous arbre droit
+			si symbMorse = "-":
+				n = droit(x)
+				
+			// .: examiner le sous arbre gauche
+			si symbMorse = ".":
+				n = gauche(x)
+				
+			// fin de la chaine, retour de la valeur
+			sinon:
+				retourner valeur(n)
+				
+				
+			fin si
+		fin tant que		
+
+
+fonction CarMorse1(m: chaine, n: noeud) -> car
+	"""
+	Retourne une representation (chaine) en morse associée à un caractère
+	
+	Sans vérifications
+	"""
+	
+	noeudsTraités = List<Noeud>
+			
+	// rechercher le caractère concerné
+	tant que valeur(n) != m:
+		noeudsTraités.ajouter(n)
+		si Existe_Gauche(n) et noeudsTraites.contient(Gauche(n)) = faux:
+			n <- Gauche(n)		
+		sinon si Existe_Droit(n) et noeudsTraites.contient(Droit(n)) = faux:
+			n <- Droit(n)
+		sinon si Perer(n) != nil et noeudsTraites.contient(Pere(n)) = faux:
+			n <- Pere(n)
+	fin tant que	
+	
+	
+	// remonter jusqu'au parent

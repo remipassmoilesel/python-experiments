@@ -1,0 +1,29 @@
+# source: https://www.youtube.com/watch?v=XgKOC6X8W28
+
+# lancer un conteneur et obtenir un terminal
+docker run -ti ubuntu
+
+# lister les images disponibles
+docker images 
+
+# lister les modifications d'une image
+docker diff $id
+
+# enregistrer les modifications d'un conteneur (! id: conteneur, pas image)
+docker commit $id image_ubuntu_modifie
+
+# exporter une image
+docker save image_ubuntu_modifie > /path/to/archive.tar
+
+# lancer un conteneur daemon et lier un port (hote: 8080 / ctr: 80)
+docker run -d -p 8080:80 image_ubuntu_modifie
+
+# lancer un conteneur et lier un dossier (host:ctr)
+docker -v /var/www:/var/www
+
+# Stopper un conteneur
+docker stop id
+
+# Supprimer un conteneur
+docker rmi id_image
+

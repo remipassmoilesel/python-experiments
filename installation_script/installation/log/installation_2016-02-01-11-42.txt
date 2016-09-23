@@ -1,0 +1,37 @@
+
+
+Installation: Commandes préliminaires: 
+----------------------------------------
+
+
+#0 test/test
+Command: cd /home/remipassmoilesel/projects/python/python_scripts/installation/installation/; test/test
+Erreur: [Errno 2] No such file or directory
+
+
+#1 pwd
+Command: cd /home/remipassmoilesel/projects/python/python_scripts/installation/installation/; pwd
+Erreur: [Errno 2] No such file or directory
+
+
+Installation: Desinstallation de paquets: 
+------------------------------------------
+
+
+Installation: Installation de paquets
+-------------------------------------
+
+
+#0 test
+Command: sudo apt-get -y install test
+Lecture des listes de paquets…
+Construction de l'arbre des dépendances…
+Lecture des informations d'état…
+E: Impossible de trouver le paquet test
+
+
+Installation: Commandes finales
+-------------------------------
+
+
+Installation: Fin du script, journal disponible: /home/remipassmoilesel/projects/python/python_scripts/installation/installation/log/installation_2016-02-01-11-42.txt

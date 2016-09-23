@@ -1,0 +1,116 @@
+
+arbre: agregat
+
+	el: valeur de l'element
+	g: sous arbre gauche
+	d: sous arbre droit
+
+fin agregat
+
+
+
+action affInfixé(r: arbre)
+	"""
+	Afficher un arbre avec parentheses
+	"""
+
+	lexique de infixé
+	-----------------
+	
+	r! : pointeur, équivaut à r fleche haut
+	feuille(r): retourne vrai si r n'a pas d'enfant
+
+	algo de affInfixé
+	-----------------
+	
+	si feuille(r) alors 
+		e.afficher(r!.el)
+	
+	sinon si r!.g = nil alors // operateur unaire
+		e.afficher(r!.el)
+		si non feuille(r!.d) alors 
+			e.afficher('(')
+			affInfixé(r!.d)
+		sinon 
+			affInfixé(r!.d)
+			e.afficher(')')
+			
+	sinon 
+		correction illisible
+	fin si	
+	
+
+--------------------------
+
+fonction eval(r:arbre) -> reel 
+	"""
+	Evalue une expression sous forme d'arbre
+	"""
+	
+	lexique
+	-------
+	valeur() : retourne la valeur d'un element
+	log(): retourne qqu chose sans interet
+	opd, opg: operande droite et gauche
+	
+	algo
+	----
+	
+		selon r:
+		
+			// feuille
+			feuille(r): 
+				renvoyer(valeur(r!.el))
+				
+			// operateur unaire
+			r!.g = nil et r!.d != nil:
+				opd <- eval(r!.d)
+				
+				selon r!.el
+					r!.el = "-" : renvoyer(-opd)
+					r!.el = "log" : renvoyer(log(opd))	
+				fin selon
+			
+			// operateur binaire
+			r!.g != nil et r!.d != nil:
+				opg <- eval(r!.g)
+				opd <- eval(r!.d)
+				
+				selon r!.el
+					r!.el = "-": renvoyer (opg-opd)
+					r!.el = "+": renvoyer (opg+opd)
+					r!.el = "*": renvoyer (opg*opd)
+					r!.el = "/": renvoyer (opg/opd) // Attention à 0
+					r!.el = "^": renvoyer (opg^opd) 
+				
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

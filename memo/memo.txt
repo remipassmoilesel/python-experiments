@@ -1,0 +1,874 @@
+Mémo
+----
+
+# docker :: docker rmi $(docker images -q)
+Supprimer toutes les images.
+
+# apt :: sudo apt-get -f --force-yes --yes install
+Réparer les problèmes de dépendances. 
+
+# echo "### Starting: " `date` >> $UPDATE_LOG
+Ajouté le: 2016-01-15 18:08
+Ecrire la date du journal dans un journal.
+
+# Decompilation de classes Java
+Ajouté le: 2016-01-15 18:08
+Voir JD-Eclipse à l'adresse http://jd.benow.ca/
+Télécharger l'archive, décompresser, puis:
+Help > Install new software > Add > Local > sélectionner le dossier
+
+# bg nmr 
+Ajouté le: 2016-01-15 18:08
+Executer la tache numero nmr en arriere plan
+
+# jobs 
+Ajouté le: 2016-01-15 18:08
+Afficher les tache en cours
+
+# sensors 
+Ajouté le: 2016-01-15 18:08
+Afficher les temperatures du matériel
+
+# vim :: :1,$s/text a rechercher/text de substitution/g
+Ajouté le: 2016-01-15 18:08
+Rechercher/remplacer où 1 représente la première ligne concernée 
+et $ représente la dernière ligne (autre exemple: :2, 5/...)
+
+# configuration :: lsusb  
+Ajouté le: 2016-01-15 18:08
+Lister les periphériques USB
+
+# apt :: apt-file list package-name 
+Ajouté le: 2016-01-15 18:08
+Afficher le contenu du paquet package-name. 
+Penser à mettre à jour avec sudo apt-file update
+
+# top
+Ajouté le: 2016-01-15 18:08
+Vue de l'activité du processeur
+
+# dpkg :: dpkg -i paquet
+Ajouté le: 2016-01-15 18:08
+Installer un paquet avec dpkg
+
+# dpkg :: dpkg -r paquet
+Ajouté le: 2016-01-15 18:08
+Desinstaller un paquet avec dpkg
+
+# configuration :: sudo lmt-config-gui 
+Ajouté le: 2016-01-15 18:08
+Paramétrer l'économie d'énergie
+
+# configuration :: lshw -enable pci -class display
+Ajouté le: 2016-01-15 18:08
+Afficher la carte graphique
+
+# traceroute 168.52.2.0
+Ajouté le: 2016-01-15 18:08
+Obtenir la route jusqu'à 168....
+
+# host wikipedia.fr 
+Ajouté le: 2016-01-15 18:08
+Obtenir l'adresse IP de wikipedia.fr
+
+# http://127.0.0.1:631
+Ajouté le: 2016-01-15 18:08
+Page d'accueil de CUPS, afficher les imprimantes disponibles
+
+# sudo vim /etc/fstab
+Ajouté le: 2016-01-15 18:08
+Configurer le montage des partitions au démarrage
+
+# bash :: expression | xargs -0 rm
+Ajouté le: 2016-01-15 18:08
+Transforme le pipe en arguments, avec separateur NUL (pratique pour les espaces 
+genants dans les noms de fichiers)
+
+# find . -print0 -name "a" 
+Ajouté le: 2016-01-15 18:08
+Recherche et renvoi une liste avec séparateur NUL (pratique pour les 
+espaces genants dans les noms de fichiers)
+
+# find . -print0 -name "*Bla*" | xargs -0 rm
+Ajouté le: 2016-01-15 18:08
+Supprime tous les fichiers dont le nom comporte "Bla"
+
+# bash :: expression | xargs rm 
+Ajouté le: 2016-01-15 18:08
+Transforme le pipe en arguments de commande
+
+# find / -mtime 3 -print
+Ajouté le: 2016-01-15 18:08
+Trouver les fichiers modifié ces 3 derniers jours
+
+# configuration :: sudo blkid 
+Ajouté le: 2016-01-15 18:08
+Afficher les id de partitions
+
+# java :: jdk/bin/javaws path/to/jnlp 
+Ajouté le: 2016-01-15 18:08
+Demarrer une application java jnlp
+
+# tail -n 20 file 
+Ajouté le: 2016-01-15 18:08
+Afficher les 20 dernières lignes du fichier
+
+# echo "test" &>> file 
+Ajouté le: 2016-01-15 18:08
+Redirection stdout et stderr vers un fichier, avec ajout
+
+# cat > ./outfile <<DELIM multiple \n lines DELIM  
+Ajouté le: 2016-01-15 18:08
+Ecrire plusieurs lignes dans un fichier
+
+# sudo mount -t vboxsf share /home/toto 
+Ajouté le: 2016-01-15 18:08
+Monter un dossier partagé virtual box
+
+# dpkg :: dpkg --get-selections 
+Ajouté le: 2016-01-15 18:08
+Afficher la liste de tous les paquets installés
+
+# sudo mount /dev/cdrom /media/cdrom 
+Ajouté le: 2016-01-15 18:08
+Monter un cdrom
+
+# /etc/network/interfaces 
+Ajouté le: 2016-01-15 18:08
+Fichier de configuration des interfaces réseaux
+
+# ifconfig -a 
+Ajouté le: 2016-01-15 18:08
+Lister les interfaces réseaux disponibles
+
+# shortcut :: CTRL ALT F1 -> F6 
+Ajouté le: 2016-01-15 18:08
+Ouvrir un terminal
+
+# shortcut :: CTRL ALT F8
+Ajouté le: 2016-01-15 18:08
+Ouvrir serveur X
+
+# 7z x path/to/zip 
+Ajouté le: 2016-01-15 18:08
+Extraire l'archive en respectant les chemins
+
+# 7z a path/to/new/zip directory 
+Ajouté le: 2016-01-15 18:08
+Creer zip à partir de directory
+
+# whereis command 
+Ajouté le: 2016-01-15 18:08
+Afiche les emplacements possibles de command
+
+# apt :: sudo apt-get -y install package 
+Ajouté le: 2016-01-15 18:08
+Installer le package, répondre oui à toutes les questions
+
+# vim :: :set ff=unix 
+Ajouté le: 2016-01-15 18:08
+Conversion fin de ligne dos vers unix
+
+# configuration :: vmstat -s 
+Ajouté le: 2016-01-15 18:08
+Usage memoire RAM
+
+# nmap localhost 
+Ajouté le: 2016-01-15 18:08
+Afficher les ports à l'ecoute
+
+# nmap 213.186.33.18 -p 1-200 
+Ajouté le: 2016-01-15 18:08
+Scanner les ports de l'adresse ip, plage 1 à 200
+
+# history -c 
+Ajouté le: 2016-01-15 18:08
+Effacer l'historique de commandes
+
+# application :: ranger 
+Ajouté le: 2016-01-15 18:08
+Explorateur de fichier en ligne de commande
+
+# application :: clonezilla 
+Ajouté le: 2016-01-15 18:08
+Utilitaire de restauration et de clonage de disque
+
+# lshw 
+Ajouté le: 2016-01-15 18:08
+Configuration méterielle
+
+# find directory -name "*nom*" 
+Ajouté le: 2016-01-15 18:08
+Rechercher tous les fichiers "*nom*" dans 'directory'
+
+# df 
+Ajouté le: 2016-01-15 18:08
+Espace disque utilisé/disponible
+
+# sudo ps -A 
+Ajouté le: 2016-01-15 18:08
+Afficher les processus actifs
+
+# kill pid 
+Tuer un processus
+
+# unzip file 
+Dezipper le fichier file
+
+# sudo apt-cache show nom_package 
+Recherche un package correspondant au nom
+
+# sudo apt-cache search nom_package 
+Recherche un package correspondant au nom
+
+# lsb_release -a 
+Version de l'OS
+
+# vim :: yy 
+Copier une ligne
+
+# vim :: p 
+Coller le buffer 
+
+# application :: gnome-tweak-tool
+Configuration énergie / avancée en mode graphique 
+
+# sudo pm-hibernate 
+Eteindre / hiberner 
+
+# /usr/share/applications/app.desktop 
+Ajouter une application au bureau
+
+# vim :: :w /path/to/file 
+Ecrire une copie du fichier 
+
+# sudo netstat -ltnp
+Lister tous les ports ouverts, + ceux sur adresses locales, et afficher les processus qui les possèdent.
+
+# sudo -i 
+Ouvrir une invite de commande en root
+
+# su root 
+root: ne fonctionne pas sous ubuntu
+
+# gksu graphical 
+Lance 'graphical' en mode root
+
+# kdesudo graphical 
+Lance 'graphical' en mode root
+
+# cp -rvp source destination 
+Copier recursivement fichiers et dossiers, en conservant les droits
+
+# tar -tvf achive 
+Lister tous les fichiers d'une archive
+
+# tar -cf archive.tar fichiers 
+Creer une archive tar
+
+# tar -xf archive.tar 
+Dézipper une archive
+
+# 7z l /path/to/archives
+Lister les fichiers d'une archives.
+
+# 7za a /path/to/zip archive.zip
+Créer une archive.
+
+# git :: git init
+Creer un projet git
+
+# git :: git add --all
+Prendre en compte tous les fichiers du répertoire de projet.
+
+# sudo chown -R user:group /path/to/file/
+Changer le propriètaire et le groupe d'un dossier, récursivement.
+
+# ls | tee fichier1 fichier2
+Copier l'entrée standard vers la sortie standard et tous les fichiers spécifiés
+
+# sudo hdparm -t /dev/sdb
+Mesurer la vitesse de lecture d'un disque
+
+# curl -I abc-map.fr
+Afficher les en-têtes http d'une page web.
+
+# java : Project > Properties > Targeted Runtimes > JBOSS AS 7
+Inclures les bibliothèque de dévelopement Java EE, utile lors des problèmes d'importation de HttpServlet
+
+# vim :: :/keyword
+ Rechercher keyword dans le fichier courant. 'n' pour aller au suivant, 'N' pour aller au précédent.
+
+# du -sh /dir
+Afficher la taille d'un dossier sur le disque
+
+# du -h -d 1 /dir
+Afficher la taille d'un dossier et de ses sous-dossier, de niveau 1
+
+# joke :: cmatrix -b -s -C blue
+Afficher un terminal d'informations ultra-importantes et top-secrètes
+
+# joke :: toilet message
+Creer un ascii art
+
+# joke :: sl -l
+Faire passer un train !
+
+# joke :: ls /usr/share/figlet/
+Lister les fonts disponibles pour toilet
+
+# bash :: echo $@
+Bash: Transmettre tous les arguments sous forme d'une chaine à une commande
+
+# application : jp2a image.jpg
+Ajouté le: 2016-01-15 18:08
+Convertir une image en ASCII art.
+
+# joke :: apt-get moo
+Ajouté le: 2016-01-15 18:08
+La commande la plus importante du gestionnaire de paquets
+
+# configuration : Ajouter 'Defaults insults' à sudo visudo
+Ajouté le: 2016-01-15 18:08
+Etoffer un peu les messages lorsque le mot de passe sudo est incorrect
+
+# joke :: telnet towel.blinkenlights.nl
+Ajouté le: 2016-01-15 18:08
+Star wars dans ton telnet !
+
+# joke :: nmap -oS - scanme.nmap.org
+Ajouté le: 2016-01-15 18:08
+nmap leetspeak
+
+# joke :: fortune | cowsay -f stegosaurus
+Ajouté le: 2016-01-15 18:08
+Faire parler un stegosaure
+
+# joke :: fortune | cowsay -f tux
+Ajouté le: 2016-01-15 18:08
+Faire parler Tux
+
+# joke :: fortune | cowsay
+Ajouté le: 2016-01-15 18:08
+Faire parler une vache
+
+# xdg-open file.extension http://url
+Ajouté le: 2016-01-15 18:08
+Ouvrir une ressource avec l'application par défaut
+
+# configuration :: stellarium --full-screen no
+Ajouté le: 2016-01-15 18:08
+Démarrer stellarium en mode fenetré, réduit les bugs d'affichage
+
+# wget url
+Ajouté le: 2016-01-15 18:08
+Télécharger une ressource
+
+# wget -c url
+Ajouté le: 2016-01-15 18:08
+Reprendre le téléchargement après une interruption.
+
+# wget --page-requisites http://page.html
+Ajouté le: 2016-01-15 18:08
+Télécharger une page web et ses dependances.
+
+# wget -i /path/to/list_of_files.txt
+Ajouté le: 2016-01-15 18:08
+Télécharger une liste de fichiers
+
+# configuration :: nload device
+Ajouté le: 2016-01-18 21:13
+Afficher l'activité d'un périphérique réseau
+
+# application :: ttyrec
+Ajouté le: 2016-01-18 23:41
+Enregistrer une session de terminal
+
+# htop
+Ajouté le: 2016-01-19 08:32
+Visualisation de l'activité des processeurs, des processus et des threads en cours.
+
+# iftop
+Ajouté le: 2016-01-19 09:13
+Afficher l'activité réseau de chaque socket
+
+# configuration :: DocumentRoot 'path/to/dir'
+Ajouté le: 2016-01-19 18:47
+Changer la racine d'un serveur apache
+
+# uname -r
+Ajouté le: 2016-01-21 19:33
+Afficher la version du noyau
+
+# read -p 'Press [Enter] key to start backup...'
+Ajouté le: 2016-01-21 19:46
+Mettre en pause un script et attendre que l'on appui sur entrée
+
+# application :: profanity
+Ajouté le: 2016-01-26 17:02
+Client de discussion en ligne de commande
+
+# fdisk -l
+Ajouté le: 2016-01-26 17:02
+Afficher les disques disponibles
+
+# git :: git rm -r --cached directory/
+Ajouté le: 2016-01-30 11:58
+Enlever un répertoire de l'index.
+
+# git :: git push origin master --force
+Ajouté le: 2016-01-30 11:59
+Forcer un push vers l'origine, même si des modifications ont été apportées
+
+# while true; do scrot -d 1 '%Y-%m%d-%T-sc.jpg';done
+Ajouté le: 2016-01-30 15:50
+Prendre des captures d'écran à 1 s d'interval
+
+# configuration :: /etc/cron/cron.daily
+Ajouté le: 2016-01-31 18:34
+Placer un cript dans ce dossier et il sera éxécuté chaque jour - voir monthly, weekly, ...
+
+# run-parts directory
+Ajouté le: 2016-01-31 18:36
+Executer tous les scripts de 'directory'.
+
+# docker :: docker pull debian
+Ajouté le: 2016-02-02 08:29
+Telecharger une image de systeme d'exploitation.
+
+# docker :: docker run -d -P image command
+Ajouté le: 2016-02-02 08:57
+Lancer l'image docker 'image' en arrière plan (-d) et en mappant tous les ports nécéssaires (-P)
+
+# shortcut : CTRL + R (in terminal)
+Ajouté le: 2016-02-02 09:13
+Rechercher dans les commandes précédentes.
+
+# docker :: docker logs container_name
+Ajouté le: 2016-02-02 10:33
+Afficher la sortie standard d'un conteneur
+
+# docker :: docker run -d ubuntu:14.04 /bin/sh -c 'command1; command2'
+Ajouté le: 2016-02-02 10:35
+Lancer un conteneur docker en arrière plan avec pour commande command1 et command2 (voir pour utiliser bash)
+
+# docker :: docker ps; docker ps -a
+Ajouté le: 2016-02-02 10:53
+Lister tous les conteneurs actifs. Lister tous les conteneurs.
+
+# docker :: docker images
+Ajouté le: 2016-02-02 10:56
+Lister les images disponibles.
+
+# docker :: docker search keyword
+Ajouté le: 2016-02-02 10:59
+Afficher toutes les images disponibles via docker pull correspondant au mot clef 'keyword'
+
+# docker :: docker build /path/to/directory/
+Ajouté le: 2016-02-02 11:03
+Construit une image à partir d'un dockerfile placée dans le dossier /path/to/directory/
+
+# ssh : ssh pi@192.168.0.20
+Ajouté le: 2016-02-03 19:17
+Connexion ssh au raspberry pi situé à l'adresse 192.168.0.20
+
+# ssh : scp path/to/localfile username@host:/destination/folder
+Ajouté le: 2016-02-03 19:43
+Envoyer un fichier local vers une machine distante par ssh.
+
+# configuration :: /usr/local/etc/no-ip2.conf
+Ajouté le: 2016-02-03 19:56
+Fichier de configuration de noip
+
+# docker :: docker daemon
+Ajouté le: 2016-02-04 12:08
+Démarrer le daemon docker
+
+# configuration :: free -m
+Ajouté le: 2016-02-04 12:28
+Afficher la mémoire vive disponible en méga octet
+
+# configuration :: mount -a
+Ajouté le: 2016-02-05 15:12
+Valider le fichier fstab.x
+
+# nmap -ov XXX.XXX.XXX.XXX
+Ajouté le: 2016-02-06 19:32
+Scan de l'adresse spécifiée avec détection d'OS
+
+# joke :: while true ; do eject ; sleep 60 ; done
+Ajouté le: 2016-02-06 19:47
+Ouvrir le lecteur DVD toutes les 60 secondes
+
+# joke :: xbacklight -set 20
+Ajouté le: 2016-02-07 11:34
+Régler la luminosité de l'écran
+
+# configuration :: sudo /etc/init.d/ssh start
+Ajouté le: 2016-02-07 11:54
+Démarrer un service
+
+# screen :: CTRL a ?
+Ajouté le: 2016-02-07 12:08
+Afficher l'aide de screen
+
+# screen :: CTRL a c
+Ajouté le: 2016-02-07 12:11
+Créer une fenêtre 
+
+# screen :: CTRL a n
+Ajouté le: 2016-02-07 12:11
+Aller à la fenêtre suivante 
+
+# screen :: CTRL a d
+Ajouté le: 2016-02-07 12:11
+Se détacher de screen
+
+# screen :: -r
+Ajouté le: 2016-02-07 12:11
+Se réattacher à une fenêtre
+
+# screen :: CTRL a H
+Ajouté le: 2016-02-07 12:13
+Créer un journal de commandes
+
+# screen :: CTRL a x
+Ajouté le: 2016-02-07 12:14
+Vérouiller une session screen
+
+# screen :: CTRL a k
+Ajouté le: 2016-02-07 12:15
+Stopper une session screen
+
+# byobu :: SHIFT F1
+Ajouté le: 2016-02-07 12:21
+Afficher l'aide de la commande byobu. Byobu permet de créer plusieurs terminaux, et de les splitter
+
+# byobu :: SHIFT alt up, down, left, right
+Ajouté le: 2016-02-07 12:27
+Redimensionner un split
+
+# byobu :: CTRL/ALT F2
+Ajouté le: 2016-02-07 12:29
+Split vertical / horizontal du terminal
+
+# byobu :: SHIFT up, down, ...
+Ajouté le: 2016-02-07 12:29
+Changer le terminal actif entre différents splits
+
+# byobu :: CTRL SHIFT F2
+Ajouté le: 2016-02-07 12:31
+Créer une nouvelle session
+
+# byobu :: ctrl F6
+Ajouté le: 2016-02-07 12:32
+Tuer le split actifx
+
+# byobu :: F6
+Ajouté le: 2016-02-07 12:49
+Quitter la session et laisser les programmes tourner
+
+# configuration :: jboss/.../standalone.sh -b 0.0.0.0
+Ajouté le: 2016-02-08 07:55
+Demarrer le serveur JBoss et autoriser l'acés depuis l'extérieur
+
+# configuration :: sudo update-rc.d postgresql disable
+Ajouté le: 2016-02-11 15:08
+Activer/Désactiver le démarrage auto d'un service au lancement du système
+
+# application :: mplayer file.mp3
+Ajouté le: 2016-02-11 22:29
+Jouer un son mp3 en ligne de commande
+
+# joke :: zenity --info 'Message'
+Ajouté le: 2016-02-12 09:08
+Affiche un message dans une boite de dialogue
+
+# joke :: xmessage 'Message'
+Ajouté le: 2016-02-12 09:08
+Affiche un message dans une boite de dialogue
+
+# bash :: $?
+Ajouté le: 2016-02-12 13:23
+Code d'exécution de la précédente commande
+
+# docker :: docker run -ti armv7/armhf-ubuntu
+Ajouté le: 2016-02-14 20:30
+Ouvrir une image ubuntu/arm
+
+# docker :: docker commit  image_ubuntu_modifie
+Ajouté le: 2016-02-15 09:01
+Enregistrer en tant qu'image un conteneur et ses modifications.
+
+# sudo -i -u user
+Ajouté le: 2016-02-19 09:39
+Ouvrir un shell en tant que user
+
+# configuration :: cat /proc/mounts | grep -i /dev/sda
+Ajouté le: 2016-02-19 15:34
+Lister tous les points de montage pour /dev/sda
+
+# configuration :: rpi-update
+Ajouté le: 2016-02-19 19:30
+Mise à jour du frimware raspberry pi
+
+# sudo usermod -aG group user
+Ajouté le: 2016-02-19 19:59
+Ajouter l'utilisateur 'user' au groupe 'group'. Se relogger pour que les changements prennent effet.
+
+# configuration :: getent group | grep user
+Ajouté le: 2016-02-19 20:00
+Afficher tous les groupes de l'utilisateur 'user'
+
+# configuration :: getent passwd
+Ajouté le: 2016-02-19 20:01
+Afficher tous les utilisateurs
+
+# configuration :: getent group
+Ajouté le: 2016-02-19 20:01
+Afficher tous les groupes
+
+# che.sh -i run
+Ajouté le: 2016-02-20 16:07
+Lancer une machine docker Eclipse CHE
+
+# configuration :: service mysql start
+Ajouté le: 2016-02-23 14:28
+Démarrer un service
+
+# sudo passwd user
+Ajouté le: 2016-02-24 11:04
+Changer le mot de passe de 'user'
+
+# configuration :: vim /etc/shells; sudo chsh user
+Ajouté le: 2016-02-24 11:22
+Changer le shell par défaut d'un utilisateur. Le shell doit être présent dans /etc/shells
+
+# joke :: amixer -D pulse set Master 100%
+Ajouté le: 2016-02-26 17:47
+Modifier le volume sonore a 100 %
+
+# application : http://localhost:8080/monitorix/
+Ajouté le: 2016-02-27 13:20
+Url du service monitorix de surveillance de serveur.
+
+# exo-preferred-applications
+Ajouté le: 2016-02-28 12:35
+Modifier les applications par défaut
+
+# bash :: sleep 10; alert 'Fin de la commande'
+Ajouté le: 2016-02-28 22:54
+Etre averti a la fin d'une commande longue.
+
+# ls | egrep -o 'x'
+Ajouté le: 2016-02-29 09:40
+L'option -o de egrep/grep permet de n'afficher que la partie qui match de la regex
+
+# lsblk
+Ajouté le: 2016-02-29 14:01
+Afficher toutes les partitions et leurs points de montage
+
+# sudo mount --bind dir1/ dir2/
+Ajouté le: 2016-02-29 14:40
+Lier/monter le répertoire 'dir1' au répertoire 'dir2'
+
+# ln /path/to/origin name
+Ajouté le: 2016-03-01 13:57
+Créer un lien nommé 'name' vers origin.
+
+# ip a
+Ajouté le: 2016-03-02 13:52
+Afficher des rensignements sur les interfaces réseaux. Meilleure méthode que ifconfig.
+
+# nmap -F 111.111.111.111/20
+Ajouté le: 2016-03-02 13:53
+Scan rapide d'un réseau. Ne scanne pas tous les ports.
+
+# unset HISTFILE
+Ajouté le: 2016-03-02 13:58
+Désactiver la sauvegarde de l'historique pour la session. L'historique sera utilisable mais ne sera pas sauvegarder à la fin de la session.
+
+# sudo lsblk -o name,size,mountpoint,uuid,label
+Ajouté le: 2016-03-03 08:01
+Afficher partitions et points de montage
+
+# rsync -aAXv --numeric-ids --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup/folder
+Ajouté le: 2016-03-03 08:02
+Sauvegarder un système d'exploitation complet
+
+# sudo grep -ri '*index*' .
+Ajouté le: 2016-03-03 12:32
+Rechercher récursivement (r) dans les fichiers du répertoire courant
+
+# sudo parted -l
+Ajouté le: 2016-03-03 14:25
+Afficher des informations sur les disques et les partitions: taille, type(gpt|msdos), numéros, flags de boot, ...
+
+# git :: git remote rm origin
+Ajouté le: 2016-03-03 19:15
+Enlever le depot distant
+
+# gzip fichier
+Ajouté le: 2016-03-05 10:42
+Compresser 'fichier' au format .gz et supprimer l'original. Option '-k'(keep) pour conserver les originaux.
+
+# cp /path/to/{file1,file2} /destination
+Ajouté le: 2016-03-05 17:05
+Copier plusieurs fichiers en une commande.
+
+# application :: dconf &
+Ajouté le: 2016-03-06 12:12
+Editer les paramètres de l'env graphique.
+
+# application :: tweak &
+Ajouté le: 2016-03-06 14:37
+Modifier les associations de fichier par défaut
+
+# nmcli dev show wlp3s0
+Ajouté le: 2016-03-07 10:18
+Informations sur le réseaux: masque, adresse ip, ...
+
+# sudo arp-scan --interface=wlp3s0 --localnet
+Ajouté le: 2016-03-07 10:31
+Scanner un réseau. Moins efficace que nmap ?
+
+# rehash
+Ajouté le: 2016-03-07 19:18
+Rafraichir l'autocompletion de zsh
+
+# nohup firefox
+Ajouté le: 2016-03-07 19:35
+Démarrer firefox independament du shell, par exemple via SSH
+
+# wmctrl -l
+Ajouté le: 2016-03-07 20:27
+Lister les fenêtres ouvertes
+
+# eject / eject -t
+Ajouté le: 2016-03-07 21:54
+Ouvrir / fermer le lecteur CD
+
+# joke :: :(){ :|:&};:
+Ajouté le: 2016-03-07 21:55
+Fork bomb yeahhhh! 
+
+# ssh :: sshfs -p22 user@server:cible point-montage
+Ajouté le: 2016-03-07 22:05
+Monter un dossier distant par SSH
+
+# reset
+Ajouté le: 2016-03-08 08:35
+Remettre le terminal d'aplomb après par exemple un cat sur un fichier binaire.
+
+# configuration :: sudo cat /var/log/auth.log
+Ajouté le: 2016-03-09 11:18
+Afficher les journaux des connexions root passées
+
+# ln -s source target
+Ajouté le: 2016-03-09 15:46
+Créer un lien symbolique de source vers target. Fonctionne entre plusieurs partitions.
+
+# application :: mutt
+Ajouté le: 2016-03-11 09:50
+Client mail en CLI
+
+# application :: weechat
+Ajouté le: 2016-03-11 09:51
+Client IRC +simple qu'IRSSI
+
+# grep -R 'http' doc/
+Ajouté le: 2016-03-12 01:18
+Effectuer un grep sur un dossier, récursivement. Ici, affiche quelques URLs d'un dossier.
+
+# echo '.dump' | sqlite3 your_sqlite.db > your_sqlite_text.txt
+Ajouté le: 2016-03-14 01:56
+Dump sqlite 3 au format texte
+
+# dpkg :: dpkg-query -L violetumleditor
+Ajouté le: 2016-03-16 10:25
+Lister les fichiers d'un paquet .deb avec dpkg
+
+# unzip archive.zip -d newfolder/
+Ajouté le: 2016-03-17 09:42
+Extraire un zip dans un dossier arbitraire.
+
+# sudo readlink -f /proc/1957/exe
+Ajouté le: 2016-03-20 10:38
+Obtenir le chemin complet de l'éxécutable d'un processus, ou 1957 est l'identifiant de processus
+
+# sudo ddrescue -D --force ubuntu-mate-15.10-desktop-amd64.iso /dev/sdc
+Ajouté le: 2016-03-23 18:45
+Installer une image ISO sur une clef USB avec ddrecue. Installer le paquet auparavant en effectuant un sudo apt-get install gddrecue
+
+# application :: atom
+Ajouté le: 2016-03-25 09:48
+Editeur de texte extensible multi-plateforme
+
+# atom > CTRL+SHIFT+P
+Ajouté le: 2016-03-25 10:44
+Ouvrir le panneau de controle
+
+# apm install linter
+Ajouté le: 2016-03-25 18:11
+Installer un plugin sur l'éditeur Atom, via son package manager.
+
+# ranger :: S
+Ajouté le: 2016-03-28 12:11
+Ouvrir un shell dans le répertoire courant. Voir man ranger
+
+# configuration :: systemctl status sshd
+Ajouté le: 2016-03-31 15:53
+Verifier l'état d'un service
+
+# vim :: e / b
+Ajouté le: 2016-04-05 13:09
+Aller au prochain mot, aller au mot precedent
+
+# configuration :: cat /proc/cpuinfo
+Ajouté le: 2016-04-11 08:06
+Obtenir des informations sur l'architecture du système (arm, 32 / 64, ...)
+
+# android :: adb push busybox /data/local/tmp;
+Ajouté le: 2016-04-11 08:27
+Copier un fichier vers un dossier android accessible en écriture, meme sans droits root
+
+# application :: baobab &
+Ajouté le: 2016-04-11 09:39
+Afficher un arbre d'usage d'un disque
+
+# application :: mk-sbuild --arch armel lucid
+Ajouté le: 2016-04-11 11:45
+Créer une image ARM Ubuntu Lucid, peut importe l'architecture hote
+
+# schroot dir/ /bin/bash
+Ajouté le: 2016-04-11 11:49
+Changement de racine similaire à chroot mais accessible pour un utilisateur non root
+
+# mount -o remount,rw /system
+Ajouté le: 2016-04-11 12:21
+Android: monter le dossier système en R/W pour pouvoir écrire dans le dossier. Sinon, le dossier n'est accessible qu'en lecture seule
+
+# sudo fuse-zip pulp.zip pulp.dir
+Ajouté le: 2016-04-12 09:36
+Monter une archive sur un dossier
+
+# git :: git commit --amend -m 'New commit message'
+Ajouté le: 2016-04-12 18:23
+Modifier le dernier message de commit
+
+# dpkg :: cat /var/log/dpkg.log | grep exim4
+Ajouté le: 2016-04-14 10:56
+Historique du gestionnaire de paquet dpkg / apt
+
+# application :: xkill
+Ajouté le: 2016-04-14 17:39
+Cliquer sur une fenetre pour tuer un processus
+
+# configuration :: sudo setenforce 0
+Ajouté le: 2016-04-15 08:36
+Passer SELinux en mode passif, ce qui permet plus d'opérations.
+
+# sudo dmesg | grep -i denied
+Ajouté le: 2016-04-15 08:37
+Aperçu des actions refusées par SELinux
+

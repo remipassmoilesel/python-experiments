@@ -1,0 +1,9 @@
+{
+    "backup-location": ".",
+    "repositories": [
+        {
+            "name": "abcmap2",
+            "url": "https://github.com/remipassmoilesel/abcmap2"
+        }
+    ]
+}

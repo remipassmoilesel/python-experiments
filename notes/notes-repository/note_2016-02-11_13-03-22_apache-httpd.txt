@@ -1,0 +1,16 @@
+# Changement du dossier de service Apache
+
+Dans le fichier httpd.conf:
+	Ajouter un alias avec et sans le "/" final, 
+	Puis ajouter une section directory.
+
+Exemple:
+:xAlias /www/ "/home/remipassmoilesel/projects/www/"
+Alias /www "/home/remipassmoilesel/projects/www"
+
+<Directory "/home/remipassmoilesel/projects/www">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+</Directory>
