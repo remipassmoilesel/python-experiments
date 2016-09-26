@@ -2,8 +2,8 @@
     "backup-location": ".",
     "repositories": [
         {
-            "name": "abcmap2",
-            "url": "https://github.com/remipassmoilesel/abcmap2"
+            "name": "utils",
+            "url": "https://github.com/remipassmoilesel/linux-utils"
         }
     ]
 }

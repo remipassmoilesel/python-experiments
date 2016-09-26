@@ -178,7 +178,7 @@ if __name__ == "__main__":
                 # repo not existing
                 else:
                     print(" -- Cloning repo '" + rep["name"] + "' ... ")
-                    subprocess.call(cdCommand + "git clone " + rep["url"], shell=True)
+                    subprocess.call(cdCommand + "git clone " + rep["url"] + " " + rep['name'], shell=True)
             except Exception as e:
                 print("Error while backing-up repo '" + rep["name"] + "': " + str(e))
 
