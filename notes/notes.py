@@ -12,7 +12,6 @@ from string import join
 # Turn to true to verbose output
 DEBUG = False;
 
-
 def log(msg):
     """ Log message only if debug mode is turn on """
     if DEBUG:
@@ -74,7 +73,7 @@ def exitProgram(code=0, msg=""):
     exit(code)
 
 
-def displayNote(notePath, lineMax=None):
+def displayNote(notePath, lineMax=None, regex=None):
     """
     Display a note, without first blank lines
     """
@@ -89,7 +88,7 @@ def displayNote(notePath, lineMax=None):
     for line in getLinesFromNote(notePath):
 
         # avoid printing first empty lines
-        if firstPrinted is not True and re.search("[a-z0-9]+", line, re.IGNORECASE) is None:
+        if firstPrinted is False and re.search("[a-z0-9]+", line, re.IGNORECASE) is None:
             continue
         else:
             firstPrinted = True
@@ -97,19 +96,29 @@ def displayNote(notePath, lineMax=None):
         # first line; print in color. [0:-1] print without end of line
         if i == 0:
             print(bcolors.OKBLUE + bcolors.UNDERLINE + line[0:-1] + bcolors.ENDC)
-        # otherwise print normally
+            print("")
+            i +=1
+
+        # otherwise print normally, but without end of line
         else:
-            print(line[0:-1])
+            if regex == None:
+                print(line[0:-1])
+                i += 1
+            # if regex is provided, show only matching lines
+            else:
+                match = re.search(regex, line, re.IGNORECASE)
+                if match != None:
+                    line = re.sub(regex, bcolors.WARNING + match.group(1) + bcolors.ENDC, line, re.IGNORECASE)
+                    print(line[0:-1])
+                    i += 1
 
         if lineMax != None and i > lineMax:
-            break;
-
-        i += 1
+            break
 
     if i == 0:
-        print "Note is empty"
+        print " ** Note is empty ** "
 
-    print
+    print("")
 
 
 def resolveNoteName(data, includeEncrypted = False):
@@ -400,9 +409,7 @@ if __name__ == "__main__":
         if notePath == None:
             exitProgram(1, "Unable to found note: " + unkArgs[0])
 
-        # decrypt it if needed
-        if knownArgs.encrypt == True:
-            exitProgram(1, "/!\ Error: Only --edit option is allowed with --encrypt option.")
+        displayNote(notePath)
 
         exitProgram()
 
@@ -427,7 +434,7 @@ if __name__ == "__main__":
         print("Notes from directory: " + notesRepPath)
         print("")
 
-        # créer une regex de recherche
+        # create a search regex
         regexa = []
         for w in unkArgs:
             regexa.append(re.sub("[^a-z]", ".?", w, re.IGNORECASE))
@@ -442,11 +449,12 @@ if __name__ == "__main__":
 
             with open(path, 'r') as cfile:
 
-                # get note contenant and try to match it
+                # get note content and try to match it
                 content = cfile.read()
 
-                if re.search(regex, content, re.IGNORECASE) is not None:
-                    displayNote(path, linesDisplayedWhenList)
+                searchResult = re.findall(regex, content, re.IGNORECASE)
+                if searchResult:
+                    displayNote(path, linesDisplayedWhenList, regex)
                     i += 1
 
         # nothing found
