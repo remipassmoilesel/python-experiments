@@ -1,16 +1,17 @@
 #!/usr/bin/python2.7
 # encoding: utf-8
 
-import re
-import os
 import argparse
-import subprocess
 import datetime
+import os
+import re
 import shutil
+import subprocess
 from string import join
 
 # Turn to true to verbose output
 DEBUG = False;
+
 
 def log(msg):
     """ Log message only if debug mode is turn on """
@@ -33,9 +34,10 @@ log("Repository path: " + notesRepPath);
 # notes prefix
 noteNamePrefix = "note_"
 noteExtension = "md"
+encryptedNoteExtension = "gpg"
 
 # template path
-noteTemplateName = "template.md"
+noteTemplateName = ".template.md"
 noteTemplatePath = os.path.join(notesRepPath, noteTemplateName)
 
 log("Template path: " + noteTemplatePath);
@@ -76,10 +78,10 @@ def displayNote(notePath, lineMax=None):
     """
     Display a note, without first blank lines
     """
-    print(bcolors.OKGREEN + "@ Numéro de la note: " + str(
-        listNotesPaths().index(notePath)) + bcolors.ENDC)
-    print("@ Nom de la note: " + notePath.split(os.sep)[-1])
-    print("@ Chemin: " + notePath)
+    print(bcolors.OKGREEN + "@ Number: " + str(
+        listNotePaths().index(notePath)) + bcolors.ENDC)
+    print("@ Name: " + notePath.split(os.sep)[-1])
+    print("@ Path: " + notePath)
     print("")
 
     i = 0
@@ -110,7 +112,7 @@ def displayNote(notePath, lineMax=None):
     print
 
 
-def resolveNoteName(data):
+def resolveNoteName(data, includeEncrypted = False):
     """
     Try to resolve a note name regardless it is a note name, partial name or number.
     Return None if nothing is found
@@ -121,7 +123,7 @@ def resolveNoteName(data):
 
     # arg is a note number
     if re.search("^[0-9]*$", data):
-        notes = listNotesPaths()
+        notes = listNotePaths(includeEncrypted)
         if int(data) < len(notes):
             return notes[int(data)]
 
@@ -134,7 +136,7 @@ def resolveNoteName(data):
             return notePath
 
         # partial name: search
-        for path in listNotesPaths():
+        for path in listNotePaths(includeEncrypted):
             if re.search(data, path, re.IGNORECASE) is not None:
                 return path
 
@@ -156,25 +158,25 @@ def getLinesFromNote(notePath):
     return output
 
 
-def listNotesPaths():
+def listNotePaths(includeEncrypted = False):
     """
     Return an ordered list of note paths
     """
 
-    output = [];
-
-    # lister un répertoire
+    # list files from directory
+    output = []
     dirList = os.listdir(notesRepPath)
 
-    # ajouter les fichier utiles
+    # remove uneeded files
     for fname in dirList:
         if fname != "." and fname != ".." and fname != noteTemplateName:
-            output.append(os.path.join(notesRepPath, fname))
+            if (includeEncrypted and fname.endswith(encryptedNoteExtension)) \
+                    or fname.endswith(noteExtension):
+                output.append(os.path.join(notesRepPath, fname))
 
-    # trier la liste
     output.sort()
 
-    # retourner la liste
+    # return result
     return output
 
 
@@ -220,8 +222,7 @@ def checkNoteRepository():
     if os.path.isdir(notesRepPath) == False:
         try:
             os.makedirs(notesRepPath)
-            print(
-                "Note repository was created here: " + notesRepPath)
+            print("Note repository was created here: " + notesRepPath)
         except:
             exitProgram(1, "Unable to create note repository: " + notesRepPath)
 
@@ -234,6 +235,32 @@ def checkNoteRepository():
                         "Unable to create note template here: " + noteTemplatePath)
 
 
+def encryptGpg(noteName):
+    """
+    Encrypt with GPG
+    """
+    code = subprocess.call("gpg --yes --armor --output " + clearToEncryptedNoteName(noteName)
+                           + " --symmetric " + noteName + " && sync", shell=True)
+
+    # then destroy clear file
+    code += subprocess.call("shred -u " + noteName + " && sync", shell=True)
+
+    return code
+
+
+def decryptGpg(noteName):
+    """
+    Decrypt with GPG
+    """
+    return subprocess.call("gpg --yes --decrypt --output " +
+                           encryptedToClearNoteName(noteName) + " " + noteName + " && sync", shell=True)
+
+def clearToEncryptedNoteName(noteName):
+    return noteName + "." + encryptedNoteExtension
+
+def encryptedToClearNoteName(noteName):
+    return noteName[:-4]
+
 if __name__ == "__main__":
 
     # check repo
@@ -241,6 +268,10 @@ if __name__ == "__main__":
 
     # parse arguments
     parser = argparse.ArgumentParser(description=PGRM_DESC)
+
+    parser.add_argument("-k", "--encrypt",
+                        action="store_true",
+                        help="encrypt with gpg (symetric) after edit")
 
     parser.add_argument("-n", "--newnote",
                         action="store_true",
@@ -285,15 +316,21 @@ if __name__ == "__main__":
     if knownArgs.newnote:
 
         if len(unkArgs) > 0:
-            notename = createNewNote(unkArgs[0])
+            noteName = createNewNote(unkArgs[0])
         else:
-            notename = createNewNote()
+            noteName = createNewNote()
 
         # create note
-        print("This note have been created: " + notename)
+        print("This note have been created: " + noteName)
 
         # then edit it
-        editNote(notename, knownArgs.graphicaleditor)
+        editNote(noteName, knownArgs.graphicaleditor)
+
+        # if necessary, encrypt it
+        if knownArgs.encrypt == True:
+            code = encryptGpg(noteName)
+            if code != 0:
+                exitProgram(1, "/!\ Warning: Error while encrypting note " + noteName)
 
         exitProgram()
 
@@ -305,14 +342,27 @@ if __name__ == "__main__":
             exitProgram(1, "You must specify a name, a partial name or a number.")
 
         # get path of note
-        notePath = resolveNoteName(unkArgs[0])
+        notePath = resolveNoteName(unkArgs[0], knownArgs.encrypt)
 
         # not found
         if notePath == None:
             exitProgram(1, "Unable to found note: " + unkArgs[0])
 
+        # decrypt it if needed
+        if knownArgs.encrypt == True:
+            code = decryptGpg(notePath)
+            notePath = encryptedToClearNoteName(notePath)
+            if code != 0:
+                exitProgram(1, "/!\ Unable to decrypt note: " + notePath)
+
         # edit it
         editNote(notePath, knownArgs.graphicaleditor)
+
+        # encrypt if needed
+        if knownArgs.encrypt == True:
+            code = encryptGpg(notePath)
+            if code != 0:
+                exitProgram(1, "/!\ Warning: Error while encrypting note " + notePath)
 
         exitProgram()
 
@@ -325,9 +375,9 @@ if __name__ == "__main__":
     # list existing notes
     if knownArgs.list:
 
-        notePaths = listNotesPaths()
+        notePaths = listNotePaths()
         if len(notePaths) < 1:
-            exit(0, "No notes available in: " + notesRepPath)
+            exitProgram(0, "No notes available in: " + notesRepPath)
 
         # iterate notes and display them
         i = 0
@@ -350,8 +400,9 @@ if __name__ == "__main__":
         if notePath == None:
             exitProgram(1, "Unable to found note: " + unkArgs[0])
 
-        # display
-        displayNote(notePath)
+        # decrypt it if needed
+        if knownArgs.encrypt == True:
+            exitProgram(1, "/!\ Error: Only --edit option is allowed with --encrypt option.")
 
         exitProgram()
 
@@ -361,7 +412,7 @@ if __name__ == "__main__":
         print("Notes from directory: " + notesRepPath)
         print("")
 
-        for path in listNotesPaths():
+        for path in listNotePaths():
             displayNote(path)
 
         exitProgram()
@@ -387,7 +438,7 @@ if __name__ == "__main__":
 
         # iterate notes and search keywords
         i = 0
-        for path in listNotesPaths():
+        for path in listNotePaths():
 
             with open(path, 'r') as cfile:
 
