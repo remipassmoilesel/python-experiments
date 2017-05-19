@@ -1,14 +1,13 @@
-# Scripts python
+# Python experiments
 
-Divers scripts python pour systèmes GNU/Linux. Ainsi que quelques exercices d'algorithmie
+Various experiments and examples on Python.
 
 ## ncurses/let-it-snow.py
 Let it snow !
 
 
 ## backup.py
-Sauvegarder une fois par semaine une sélection de dossiers. Les dossiers sont spécifiés "en dur"
-au début du script.
+Small backup utility. Directories are hard coded in script.
 
 Usage:
 
