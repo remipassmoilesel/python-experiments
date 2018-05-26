@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 from unittest.mock import MagicMock
-from ..lib import TestObject
+from src import TestObject
 
 
 class MockTest(unittest.TestCase):
