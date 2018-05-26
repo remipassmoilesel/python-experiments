@@ -1,6 +1,8 @@
 # Python experiments
 
-Various experiments and examples on Python. Many are not documented here.
+Various uninteresting experiments and examples on Python. Some are not documented here.
+
+My favorite everyday scripts are in repo "linux-utils" !
 
 ## ncurses/let-it-snow.py
 Let it snow !
