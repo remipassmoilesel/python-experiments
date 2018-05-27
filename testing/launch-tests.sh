@@ -4,4 +4,4 @@
 
 # This script should be launch from upper directory
 
-python3 -m unittest discover -s ./tests -p '*Test.py'
+python3 -m unittest discover -p '*Test.py'
