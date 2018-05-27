@@ -6,3 +6,5 @@ from . import TypedObject
 if __name__ == '__main__':
     testInstance = TypedObject()
     testInstance.sayHelloTo(2)
+
+    testVar: int = "hey"
