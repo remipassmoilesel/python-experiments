@@ -1,2 +1,2 @@
 from .MockTest import *
-from .SimpleCaseTest import *
+from .SimpleTest import *
