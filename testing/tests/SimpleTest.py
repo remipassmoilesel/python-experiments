@@ -7,6 +7,10 @@ class SimpleCaseTest(unittest.TestCase):
     def test_assertTrue(self):
         self.assertEqual(True, True)
 
+    def assertFail(self):
+        with self.assertRaises(Exception):
+            raise Exception()
+
     @unittest.skip("Skip failing test")
     def test_shouldFail(self):
         self.assertEqual(True, False)
