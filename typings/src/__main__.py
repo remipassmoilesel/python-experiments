@@ -5,6 +5,14 @@ from . import TypedObject
 
 if __name__ == '__main__':
     testInstance = TypedObject()
-    testInstance.sayHelloTo(2)
 
-    testVar: int = "hey"
+    # Wrong type arguments throw
+    # returnValue = testInstance.sayHelloTo(1)
+    returnValue = testInstance.sayHelloTo('Mary')
+
+    # But wrong return type not
+    print(returnValue)
+
+    # Wrong affectation too
+    maybeInteger: list = 0
+    print(maybeInteger)
