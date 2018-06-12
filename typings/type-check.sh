@@ -2,6 +2,9 @@
 
 # dimanche 27 mai 2018, 20:06:46 (UTC+0200)
 
-# mypy check only files imported in __init__ file
+# /!\ /!\ MyPy check only typed objects, do not forget -> None
 
-mypy -m src
+# /!\ With module option (-m), mypy check only files imported in __init__ file
+# mypy -m src
+
+mypy .
