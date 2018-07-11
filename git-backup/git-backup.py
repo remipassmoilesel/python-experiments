@@ -7,11 +7,11 @@
 #
 #
 
-import os
-import subprocess
+import argparse
 import datetime
 import json
-import argparse
+import os
+import subprocess
 
 # editors
 GRAPHICAL_EDITOR = "xdg-open"
@@ -51,8 +51,8 @@ def parseConfigurationFile():
 if __name__ == "__main__":
 
     # parse arguments
-    parser = argparse.ArgumentParser(description=pgrmdesc)
-
+    parser = argparse.ArgumentParser(description=pgrmdesc,
+                                     formatter_class=argparse.RawTextHelpFormatter)
     # edit crontab
     parser.add_argument("-ec", "--edit-crontab",
                         action="store_true",
