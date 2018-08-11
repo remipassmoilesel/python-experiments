@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
+from typing import List, Optional
+
 from . import Square
 
 
@@ -16,3 +17,6 @@ class TypedObject():
 
     def useSquare(self, square: Square):
         print(square)
+
+    def optionalParam(self, optionalParam: Optional[str] = None):
+        print(optionalParam)

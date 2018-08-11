@@ -1,8 +1,8 @@
 .idea
 .project
 .pydevproject
-.
 *.swp
 .settings
 __pycache__
 .mypy_cache
+
