@@ -14,5 +14,9 @@ class MockTest(unittest.TestCase):
 
     def test_mockIgnoreCheck(self):
         # type ignore comment allow to not break the mypy check
-        # self.test_mockIgnoreCheck = MagicMock(return_value=True)  # type: ignore
-        pass
+        self.test_mockIgnoreCheck = MagicMock(return_value=True)  # type: ignore
+
+    def configureMock(self):
+        self.outputMock = MagicMock()
+        self.outputMock.configure_mock(return_value='githash')
+        self.assertEqual(self.outputMock(), 'githash')
