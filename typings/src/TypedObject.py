@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 from . import Square
 
@@ -20,3 +20,6 @@ class TypedObject():
 
     def optionalParam(self, optionalParam: Optional[str] = None):
         print(optionalParam)
+
+    def multipleReturnType(self) -> Tuple[int, str]:
+        return 0, "str"
